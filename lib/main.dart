@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:v2exf/service/logger/index.dart';
-import 'package:v2exf/service/network/index.dart';
-import 'package:v2exf/service/network/request/node_request.dart';
+import 'package:v2exf/tools/theme_helper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'v2exf',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Theme.of(context).matericlPrimaryColor,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'v2exf'),
     );
   }
 }
@@ -35,12 +33,6 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    NodeRequest.allNodes().then(
-      (value) {
-        Logger.debug('所有节点数据：$value');
-      },
-    );
-
     setState(() {
       _counter++;
     });
