@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:v2exf/service/network/api/node_api.dart';
-import 'package:v2exf/service/network/api/topic_api.dart';
+import 'package:v2exf/service/logger/index.dart';
 import 'package:v2exf/service/network/index.dart';
+import 'package:v2exf/service/network/request/node_request.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,9 +35,11 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    JLNetWork.apiRequest(NodeApi.all).then((value) {
-      debugPrint('${value})');
-    });
+    NodeRequest.allNodes().then(
+      (value) {
+        Logger.debug('所有节点数据：$value');
+      },
+    );
 
     setState(() {
       _counter++;
