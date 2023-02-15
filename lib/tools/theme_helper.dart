@@ -3,7 +3,7 @@ import 'package:v2exf/tools/color_helper.dart';
 
 extension ThemeDataHelper on ThemeData {
   MaterialColor get matericlPrimaryColor {
-    final color = ColorHelper.fromHex('1DA1F2');
+    final color = ColorHelper.fromHex('ffffff');
     var hexCode = (((color.alpha << 24) & 0xFF000000) |
         ((color.red << 16) & 0x00FF0000) |
         ((color.green << 8) & 0x0000FF00) |
